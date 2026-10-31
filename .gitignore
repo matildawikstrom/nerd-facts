@@ -6,7 +6,8 @@ __pycache__/
 # IDE
 .idea/
 
-# DuckDB database files (rebuilt by running the pipeline)
+# Generated data (rebuilt by running the pipeline)
+data/raw/
 data/*.duckdb
 data/*.duckdb.wal
 
