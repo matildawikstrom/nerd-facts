@@ -1,4 +1,4 @@
-"""Extract & load: download raw data from swapi.dev into data/raw/<endpoint>.json.
+"""Extract & load: download raw data from swapi.dev into data/raw/swapi/<endpoint>.json.
 
 This script only extracts and lands the data. No cleaning happens here; all
 transformation is done in dbt (transform/), where it is tested and documented.
@@ -16,8 +16,8 @@ import requests
 BASE_URL = "https://swapi.dev/api"
 ENDPOINTS = ["people", "films", "planets", "species", "starships", "vehicles"]
 
-# data/raw/ in the repo root, regardless of where the script is run from
-RAW_DIR = Path(__file__).resolve().parents[1] / "data" / "raw"
+# data/raw/swapi in the repo root, regardless of where the script is run from
+RAW_DIR = Path(__file__).resolve().parents[1] / "data" / "raw" / "swapi"
 
 
 def fetch_all(session: requests.Session, endpoint: str) -> list[dict]:
@@ -40,20 +40,27 @@ def fetch_all(session: requests.Session, endpoint: str) -> list[dict]:
 
 
 def main() -> None:
-    RAW_DIR.mkdir(parents=True, exist_ok=True)
     loaded_at = datetime.now(timezone.utc).isoformat()
 
+    # Step 1: fetch every endpoint into memory. If any request fails, the script stops
+    # here and the existing files in data/raw/swapi are left untouched, so the raw layer is
+    # never a mix of old and new runs (all-or-nothing).
+    data = {}
     with requests.Session() as session:
         for endpoint in ENDPOINTS:
-            records = fetch_all(session, endpoint)
+            data[endpoint] = fetch_all(session, endpoint)
+            print(f"fetched {endpoint:<10} {len(data[endpoint]):>4} records")
 
-            # Loader metadata column: when data was fetched
-            for record in records:
-                record["_loaded_at"] = loaded_at
+    # Step 2: only once everything succeeded, write all files
+    RAW_DIR.mkdir(parents=True, exist_ok=True)
+    for endpoint, records in data.items():
+        # Loader metadata column: when data was fetched
+        for record in records:
+            record["_loaded_at"] = loaded_at
 
-            path = RAW_DIR / f"{endpoint}.json"
-            path.write_text(json.dumps(records, indent=2, ensure_ascii=False), encoding="utf-8")
-            print(f"{endpoint:<10} {len(records):>4} records -> {path.relative_to(RAW_DIR.parents[1])}")
+        path = RAW_DIR / f"{endpoint}.json"
+        path.write_text(json.dumps(records, indent=2, ensure_ascii=False), encoding="utf-8")
+        print(f"wrote   {path.relative_to(RAW_DIR.parents[1])}")
 
 
 if __name__ == "__main__":

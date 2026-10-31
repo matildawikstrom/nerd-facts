@@ -31,9 +31,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   nerd_facts:
-    # Config indicated by + and applies to all files under models/example/
-    raw:
-      +materialized: table
+    # Config indicated by + applies to all models in that folder
     staging:
       +materialized: table
     marts:
