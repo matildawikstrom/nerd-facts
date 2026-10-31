@@ -1,0 +1,14 @@
+[project]
+name = "nerd-facts"
+version = "1.0"
+description = "Nerd Facts warehouse: SWAPI data modelled with dbt and DuckDB"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "dbt-core>=1.12.6,<2",
+    "requests>=2.34.2",
+    "notebook>=7.6.4",
+    "pandas>=3.1.0",
+    "duckdb>=2.0.0",
+    "dbt-duckdb>=1.11.1",
+]

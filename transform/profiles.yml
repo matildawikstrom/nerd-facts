@@ -1,0 +1,8 @@
+nerd_facts:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      # Path is relative to where dbt is run (this folder). The file is created on first run.
+      path: ../data/nerd_facts.duckdb
+      threads: 4

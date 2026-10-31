@@ -1,0 +1,77 @@
+[0m17:52:25.272856 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000175692FF380>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000017567CFBED0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001756CFBB890>]}
+
+
+============================== 17:52:25.369994 | 4953e2e4-999f-4605-a059-9daebd6b6be7 ==============================
+[0m17:52:25.369994 [info ] [MainThread]: Running with dbt=1.12.6
+[0m17:52:25.371292 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'maximum_seed_size_mib': '1', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\mwikstrom\\.dbt', 'indirect_selection': 'eager', 'hints_enabled': 'True', 'invocation_command': 'dbt init', 'use_experimental_parser': 'False', 'use_colors': 'True', 'log_path': 'logs'}
+[0m17:52:25.667300 [info ] [MainThread]: Creating dbt configuration folder at C:\Users\mwikstrom\.dbt
+[0m17:53:11.225562 [debug] [MainThread]: Starter project path: C:\Users\mwikstrom\Documents\Education\star-wars-warehouse\.venv\Lib\site-packages\dbt\include\starter_project
+[0m17:53:11.283102 [info ] [MainThread]: Setting up your profile.
+[0m17:55:26.198763 [info ] [MainThread]: Profile star_wars_warehouse written to C:\Users\mwikstrom\.dbt\profiles.yml using target's profile_template.yml and your supplied values.
+[0m17:55:26.220970 [info ] [MainThread]: Running dbt debug to validate the project...
+[0m17:55:26.222643 [info ] [MainThread]: dbt version: 1.12.6
+[0m17:55:26.223707 [info ] [MainThread]: python version: 3.14.2
+[0m17:55:26.224636 [info ] [MainThread]: python path: C:\Users\mwikstrom\Documents\Education\star-wars-warehouse\.venv\Scripts\python.exe
+[0m17:55:26.225529 [info ] [MainThread]: os info: Windows-11-10.0.26200-SP0
+[0m17:55:26.283721 [info ] [MainThread]: Using profiles dir at C:\Users\mwikstrom\.dbt
+[0m17:55:26.284762 [info ] [MainThread]: Using profiles.yml file at C:\Users\mwikstrom\.dbt\profiles.yml
+[0m17:55:26.285651 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\mwikstrom\Documents\Education\star-wars-warehouse\star_wars_warehouse\dbt_project.yml
+[0m17:55:26.292439 [info ] [MainThread]: adapter type: postgres
+[0m17:55:26.293529 [info ] [MainThread]: adapter version: 1.11.0
+[0m17:55:26.520159 [info ] [MainThread]: Configuration:
+[0m17:55:26.521304 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m17:55:26.522499 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m17:55:26.523520 [info ] [MainThread]: Required dependencies:
+[0m17:55:26.524508 [debug] [MainThread]: Executing "git --help"
+[0m17:55:26.687245 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m17:55:26.688230 [debug] [MainThread]: STDERR: "b''"
+[0m17:55:26.689050 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m17:55:26.689840 [info ] [MainThread]: Connection:
+[0m17:55:26.690750 [info ] [MainThread]:   host: localhost
+[0m17:55:26.691653 [info ] [MainThread]:   port: 5432
+[0m17:55:26.692440 [info ] [MainThread]:   user: postgres
+[0m17:55:26.693457 [info ] [MainThread]:   database: star-wars-warehouse
+[0m17:55:26.694442 [info ] [MainThread]:   schema: public
+[0m17:55:26.695477 [info ] [MainThread]:   connect_timeout: 10
+[0m17:55:26.696569 [info ] [MainThread]:   role: None
+[0m17:55:26.697736 [info ] [MainThread]:   search_path: None
+[0m17:55:26.698837 [info ] [MainThread]:   keepalives_idle: 0
+[0m17:55:26.699868 [info ] [MainThread]:   sslmode: None
+[0m17:55:26.700867 [info ] [MainThread]:   sslcert: None
+[0m17:55:26.701746 [info ] [MainThread]:   sslkey: None
+[0m17:55:26.702565 [info ] [MainThread]:   sslrootcert: None
+[0m17:55:26.703531 [info ] [MainThread]:   application_name: dbt
+[0m17:55:26.704359 [info ] [MainThread]:   autocommit: False
+[0m17:55:26.705081 [info ] [MainThread]:   retries: 1
+[0m17:55:26.706417 [info ] [MainThread]: Registered adapter: postgres=1.11.0
+[0m17:55:27.773172 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m17:55:28.113959 [debug] [MainThread]: Using postgres connection "debug"
+[0m17:55:28.114778 [debug] [MainThread]: On debug: select 1 as id
+[0m17:55:28.115462 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m17:55:28.279891 [debug] [MainThread]: SQL status: SELECT 1 in 0.164 seconds
+[0m17:55:28.281798 [debug] [MainThread]: On debug: Close
+[0m17:55:28.282947 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m17:55:28.284148 [info ] [MainThread]: [32mAll checks passed![0m
+[0m17:55:28.285310 [info ] [MainThread]: Your new dbt project "star_wars_warehouse" was created!
+Initialized new project in C:\Users\mwikstrom\Documents\Education\star-wars-warehouse\star_wars_warehouse\star_wars_warehouse
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m17:55:28.287249 [debug] [MainThread]: Command `dbt init` succeeded at 17:55:28.287017 after 183.36 seconds
+[0m17:55:28.287869 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m17:55:28.288658 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001756BA23230>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001756CC37890>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000017568DDABE0>]}
+[0m17:55:28.289449 [debug] [MainThread]: Flushing usage events
+[0m17:55:28.855724 [debug] [MainThread]: An error was encountered while trying to flush usage events
