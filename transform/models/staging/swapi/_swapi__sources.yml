@@ -1,0 +1,25 @@
+sources:
+  - name: swapi
+    tables:
+      - name: people
+        meta:
+          external_location: >-
+              read_json('../data/raw/swapi/people.json', format = 'array', columns = struct_pack(
+                name := 'VARCHAR',
+                height := 'VARCHAR',
+                mass := 'VARCHAR',
+                hair_color := 'VARCHAR',
+                skin_color := 'VARCHAR',
+                eye_color := 'VARCHAR',
+                birth_year := 'VARCHAR',
+                gender := 'VARCHAR',
+                homeworld := 'VARCHAR',
+                films := 'VARCHAR[]',
+                species := 'VARCHAR[]',
+                vehicles := 'VARCHAR[]',
+                starships := 'VARCHAR[]',
+                created := 'VARCHAR',
+                edited := 'VARCHAR',
+                url := 'VARCHAR',
+                _loaded_at := 'VARCHAR'
+              ))
