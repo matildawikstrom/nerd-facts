@@ -43,3 +43,23 @@ sources:
                 url := 'VARCHAR',
                 _loaded_at := 'VARCHAR'
               ))
+      - name: planets
+        meta:
+          external_location: >-
+              read_json('../data/raw/swapi/planets.json', format = 'array', columns = struct_pack(
+                name := 'VARCHAR',
+                rotation_period := 'VARCHAR',
+                orbital_period := 'VARCHAR',
+                diameter := 'VARCHAR',
+                climate := 'VARCHAR',
+                gravity := 'VARCHAR',
+                terrain := 'VARCHAR',
+                surface_water := 'VARCHAR',
+                population := 'VARCHAR',
+                residents := 'VARCHAR[]',
+                films := 'VARCHAR[]',
+                created := 'VARCHAR',
+                edited := 'VARCHAR',
+                url := 'VARCHAR',
+                _loaded_at := 'VARCHAR'
+              ))
