@@ -6,7 +6,7 @@ with source as (
 
 renamed as (
     select
-        cast(regexp_extract(url, '/(\d+)/$', 1) as integer) as person_id,
+        {{ swapi_id('url') }} as person_id,
         name,
         case
             when height = 'unknown' then null
@@ -46,15 +46,15 @@ renamed as (
             else gender
         end as gender,
         homeworld as homeworld_url,
-        cast(regexp_extract(homeworld, '/(\d+)/$', 1) as integer) as homeworld_id,
+        {{ swapi_id('homeworld') }} as homeworld_id,
         films as film_urls,
-        list_transform(films, lambda u: cast(regexp_extract(u, '/(\d+)/$', 1) as integer)) as film_ids,
+        list_transform(films, lambda u: {{ swapi_id('u') }}) as film_ids,
         species as species_urls,
-        list_transform(species, lambda u: cast(regexp_extract(u, '/(\d+)/$', 1) as integer)) as species_ids,
+        list_transform(species, lambda u: {{ swapi_id('u') }}) as species_ids,
         vehicles as vehicle_urls,
-        list_transform(vehicles, lambda u: cast(regexp_extract(u, '/(\d+)/$', 1) as integer)) as vehicle_ids,
+        list_transform(vehicles, lambda u: {{ swapi_id('u') }}) as vehicle_ids,
         starships as starship_urls,
-        list_transform(starships, lambda u: cast(regexp_extract(u, '/(\d+)/$', 1) as integer)) as starship_ids,
+        list_transform(starships, lambda u: {{ swapi_id('u') }}) as starship_ids,
         cast(created as timestamptz) as api_created_at,
         cast(edited as timestamptz) as api_edited_at,
         url as person_url,
