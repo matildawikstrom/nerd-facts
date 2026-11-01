@@ -7,6 +7,10 @@ models:
         data_tests:
           - unique
           - not_null
+      - name: name
+        description: Name of the character.
+        data_tests:
+          - not_null
       - name: gender
         description: Gender as given by the API. 'n/a' = not applicable (e.g. droids).
         data_tests:
