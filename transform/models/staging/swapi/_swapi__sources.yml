@@ -23,3 +23,23 @@ sources:
                 url := 'VARCHAR',
                 _loaded_at := 'VARCHAR'
               ))
+      - name: films
+        meta:
+          external_location: >-
+              read_json('../data/raw/swapi/films.json', format = 'array', columns = struct_pack(
+                title := 'VARCHAR',
+                episode_id := 'INTEGER',
+                opening_crawl := 'VARCHAR',
+                director := 'VARCHAR',
+                producer := 'VARCHAR',
+                release_date := 'DATE',
+                characters := 'VARCHAR[]',
+                planets := 'VARCHAR[]',
+                starships := 'VARCHAR[]',
+                vehicles := 'VARCHAR[]',
+                species := 'VARCHAR[]',
+                created := 'VARCHAR',
+                edited := 'VARCHAR',
+                url := 'VARCHAR',
+                _loaded_at := 'VARCHAR'
+              ))
