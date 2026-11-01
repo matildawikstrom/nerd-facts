@@ -1,0 +1,15 @@
+models:
+  - name: stg_swapi__people
+    description: Characters from swapi.dev, one row per person.
+    columns:
+      - name: person_id
+        description: Primary key, extracted from the swapi URL.
+        data_tests:
+          - unique
+          - not_null
+      - name: gender
+        description: Gender as given by the API. 'n/a' = not applicable (e.g. droids).
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['male', 'female', 'hermaphrodite', 'n/a']
