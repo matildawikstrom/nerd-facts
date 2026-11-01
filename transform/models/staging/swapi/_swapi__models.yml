@@ -17,3 +17,25 @@ models:
           - accepted_values:
               arguments:
                 values: ['male', 'female', 'hermaphrodite', 'n/a']
+  - name: stg_swapi__films
+    description: Films from swapi.dev, one row per film.
+    columns:
+      - name: film_id
+        description: Primary key, extracted from the swapi URL. Not same as episode_id.
+        data_tests:
+          - unique
+          - not_null
+      - name: title
+        description: Title of the film.
+        data_tests:
+          - not_null
+          - unique
+      - name: episode_id
+        description: Episode of the film.
+        data_tests:
+          - not_null
+          - unique
+      - name: release_date
+        description: Release date of the film.
+        data_tests:
+          - not_null
