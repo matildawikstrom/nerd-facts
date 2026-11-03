@@ -12,7 +12,7 @@ data/*.duckdb
 data/*.duckdb.wal
 
 # dbt
+logs/
 transform/target/
 transform/dbt_packages/
-transform/logs/
 transform/.user.yml
