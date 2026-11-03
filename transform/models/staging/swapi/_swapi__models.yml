@@ -17,6 +17,14 @@ models:
           - accepted_values:
               arguments:
                 values: ['male', 'female', 'hermaphrodite', 'n/a']
+      - name: homeworld_id
+        description: Foreign key to stg_swapi__planets.
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_swapi__planets')
+                field: planet_id
   - name: stg_swapi__films
     description: Films from swapi.dev, one row per film.
     columns:
@@ -39,3 +47,15 @@ models:
         description: Release date of the film.
         data_tests:
           - not_null
+  - name: stg_swapi__planets
+    description: Planets from swapi.dev, one row per planet.
+    columns:
+      - name: planet_id
+        description: Primary key, extracted from the swapi URL.
+        data_tests:
+          - unique
+          - not_null
+      - name: name
+        description: Name of the planet.
+        data_tests:
+          - unique
