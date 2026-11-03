@@ -20,8 +20,11 @@ renamed as (
             when hair_color in ('blond', 'blonde') then 'blond'
             else {{ swapi_text('hair_color') }}
         end as hair_color,
+        {{ swapi_split_list(swapi_text("replace(hair_color, 'blonde', 'blond')")) }} as hair_colors,
         {{ swapi_text('skin_color') }} as skin_color,
+        {{ swapi_split_list(swapi_text('skin_color')) }} as skin_colors,
         {{ swapi_text('eye_color') }} as eye_color,
+        {{ swapi_split_list(swapi_text('eye_color')) }} as eye_colors,
         nullif(birth_year, 'unknown') as birth_year,
         case
             when birth_year = 'unknown' then null
