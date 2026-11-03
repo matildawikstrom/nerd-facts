@@ -59,3 +59,28 @@ models:
         description: Name of the planet.
         data_tests:
           - unique
+  - name: stg_swapi__starships
+    description: Starships from swapi.dev, one row per starship.
+    columns:
+      - name: starship_id
+        description: Primary key, extracted from the swapi URL. IDs have gaps.
+        data_tests:
+          - unique
+          - not_null
+      - name: name
+        description: Name of the starship.
+        data_tests:
+          - not_null
+          - unique
+      - name: cost_in_credits
+        description: Price of the starship in galactic credits. NULL if unknown.
+        data_tests:
+          - non_negative
+      - name: passengers
+        description: Passenger capacity. 0 is a real value (e.g. fighters). NULL if unknown or n/a.
+        data_tests:
+          - non_negative
+      - name: hyperdrive_rating
+        description: Hyperdrive class, lower is faster. NULL if unknown.
+        data_tests:
+          - non_negative
