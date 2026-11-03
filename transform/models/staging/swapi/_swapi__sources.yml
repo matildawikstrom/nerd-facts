@@ -63,3 +63,27 @@ sources:
                 url := 'VARCHAR',
                 _loaded_at := 'VARCHAR'
               ))
+      - name: starships
+        meta:
+          external_location: >-
+              read_json('../data/raw/swapi/starships.json', format = 'array', columns = struct_pack(
+                name := 'VARCHAR',
+                model := 'VARCHAR',
+                manufacturer := 'VARCHAR',
+                cost_in_credits := 'VARCHAR',
+                length := 'VARCHAR',
+                max_atmosphering_speed := 'VARCHAR',
+                crew := 'VARCHAR',
+                passengers := 'VARCHAR',
+                cargo_capacity := 'VARCHAR',
+                consumables := 'VARCHAR',
+                hyperdrive_rating := 'VARCHAR',
+                MGLT := 'VARCHAR',
+                starship_class := 'VARCHAR',
+                pilots := 'VARCHAR[]',
+                films := 'VARCHAR[]',
+                created := 'VARCHAR',
+                edited := 'VARCHAR',
+                url := 'VARCHAR',
+                _loaded_at := 'VARCHAR'
+              ))
