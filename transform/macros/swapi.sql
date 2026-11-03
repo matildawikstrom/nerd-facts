@@ -11,3 +11,8 @@
         else {{ column }}
     end
 {%- endmacro -%}
+
+{# Split comma-separated values to list #}
+{%- macro swapi_split_list(column) -%}
+    list_transform(string_split({{ column }}, ','), lambda p: trim(p))
+{%- endmacro -%}

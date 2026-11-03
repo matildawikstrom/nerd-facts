@@ -11,7 +11,7 @@ renamed as (
         episode_id,
         opening_crawl,
         director,
-        list_transform(string_split(producer, ','), lambda p: trim(p)) as producers,
+        {{ swapi_split_list('producer') }} as producers,
         release_date,
         characters as character_urls,
         list_transform(characters, lambda u: {{ swapi_id('u') }}) as character_ids,
