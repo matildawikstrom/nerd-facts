@@ -1,0 +1,44 @@
+models:
+  - name: dim_film
+    description: Film dimension. One film per row.
+    columns:
+      - name: film_id
+        description: Primary key.
+        data_tests:
+          - unique
+          - not_null
+  - name: dim_planet
+    description: Planet dimension. One planet per row.
+    columns:
+      - name: planet_id
+        description: Primary key.
+        data_tests:
+          - unique
+          - not_null
+      - name: planet_name
+        description: Name of the planet. The unnamed placeholder planet is excluded.
+        data_tests:
+          - not_null
+  - name: dim_starship
+    description: Starship dimension. One starship per row.
+    columns:
+      - name: starship_id
+        description: Primary key.
+        data_tests:
+          - unique
+          - not_null
+  - name: dim_character
+    description: Character dimension. One character per row.
+    columns:
+      - name: character_id
+        description: Primary key.
+        data_tests:
+          - unique
+          - not_null
+      - name: homeworld_id
+        description: Foreign key for connecting character and home planet.
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_planet')
+                field: planet_id
