@@ -9,26 +9,26 @@ renamed as (
         {{ swapi_id('url') }} as planet_id,
         nullif(name, 'unknown') as name,
         case
-            when rotation_period  in ('unknown', '0') then null
+            when rotation_period in ('unknown', '0') then null
             else cast(rotation_period as integer)
         end as rotation_period_hours,
         case
-            when orbital_period  in ('unknown', '0') then null
+            when orbital_period in ('unknown', '0') then null
             else cast(orbital_period as integer)
         end as orbital_period_days,
         case
-            when diameter  in ('unknown', '0') then null
+            when diameter in ('unknown', '0') then null
             else cast(diameter as integer)
         end as diameter_km,
         {{ swapi_text('climate') }} as climate,
-        {{ swapi_split_list( swapi_text('climate') ) }} as climates_list,
+        {{ swapi_split_list( swapi_text('climate') ) }} as climates,
         gravity,
         case
             when gravity in ('unknown', 'N/A') then null
             else cast( regexp_extract(gravity, '^[0-9.]+') as double)
         end as gravity_standard_g,
         {{ swapi_text('terrain') }} as terrain,
-        {{ swapi_split_list( swapi_text('terrain') ) }} as terrains_list,
+        {{ swapi_split_list( swapi_text('terrain') ) }} as terrains,
         case
             when surface_water = 'unknown' then null
             else cast(surface_water as double)
@@ -36,7 +36,7 @@ renamed as (
         case
             when population = 'unknown' then null
             else cast(population as bigint)
-        end as avg_population_sentinent,
+        end as population,
         residents as resident_urls,
         list_transform(residents, lambda u: {{ swapi_id('u') }}) as resident_ids,
         films as film_urls,
