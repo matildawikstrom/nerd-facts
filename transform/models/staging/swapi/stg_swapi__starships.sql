@@ -15,22 +15,19 @@ renamed as (
             else cast(cost_in_credits as bigint)
         end as cost_in_credits,
         cast(replace(length, ',', '') as double) as length_m,
-        -- Text kept: 'n/a' (cannot fly in atmosphere) and 'unknown' both become NULL in the number
-        max_atmosphering_speed,
+        {{ swapi_text('max_atmosphering_speed') }} as max_atmosphering_speed,
         case
             when max_atmosphering_speed in ('unknown', 'n/a') then null
             else cast(regexp_extract(max_atmosphering_speed, '^[0-9]+') as integer)
         end as max_atmosphering_speed_value,
-        -- crew can be a range ('30-165'), a single number has the same min and max
+        case
+            when crew = 'unknown' then null
+            else replace(crew, ',', '')
+        end as crew,
         case
             when crew = 'unknown' then null
             else cast(replace(string_split(crew, '-')[1], ',', '') as integer)
         end as crew_min,
-        case
-            when crew = 'unknown' then null
-            else cast(replace(string_split(crew, '-')[-1], ',', '') as integer)
-        end as crew_max,
-        -- 0 is a real value (single-seat fighters), so it stays
         case
             when passengers in ('unknown', 'n/a') then null
             else cast(replace(passengers, ',', '') as integer)
