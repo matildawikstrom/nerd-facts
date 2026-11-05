@@ -4,7 +4,7 @@ with planets as (
 
 select
     planet_id,
-    name as planet_name,
+    coalesce(name, 'Unknown') as planet_name,
     rotation_period_hours,
     orbital_period_days,
     diameter_km,
@@ -17,4 +17,3 @@ select
     pi() * diameter_km * diameter_km as surface_area_km2,
     population / (pi() * diameter_km * diameter_km) as population_per_km2
 from planets
-where name is not null

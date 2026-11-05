@@ -16,7 +16,7 @@ models:
           - unique
           - not_null
       - name: planet_name
-        description: Name of the planet. The unnamed placeholder planet is excluded.
+        description: Name of the planet. 'Unknown' is the unknown member, for characters whose homeworld is not known.
         data_tests:
           - not_null
       - name: surface_area_km2
@@ -42,8 +42,9 @@ models:
           - unique
           - not_null
       - name: homeworld_id
-        description: Foreign key for connecting character and home planet.
+        description: Foreign key to dim_planet. Points to the 'Unknown' planet when the homeworld is not known.
         data_tests:
+          - not_null
           - relationships:
               arguments:
                 to: ref('dim_planet')

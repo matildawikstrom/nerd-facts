@@ -144,7 +144,8 @@ planets_by_density = query("""
     where population_per_km2 is not null
     order by population_per_km2 desc
 """)
-total_planets = query("select count(*) as planets from dim_planet").planets[0]
+# 'Unknown' is the unknown member, not a real planet
+total_planets = query("select count(*) as planets from dim_planet where planet_name <> 'Unknown'").planets[0]
 most_crowded = planets_by_density.iloc[0]
 
 left, right = st.columns(2)
