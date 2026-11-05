@@ -42,3 +42,51 @@ models:
               arguments:
                 to: ref('dim_planet')
                 field: planet_id
+  - name: fct_character_film_appearance
+    description: Which characters appear in which films. One row per character per film.
+    data_tests:
+      - unique_pair:
+          arguments:
+            column_a: character_id
+            column_b: film_id
+    columns:
+      - name: character_id
+        description: Foreign key to dim_character.
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_character')
+                field: character_id
+      - name: film_id
+        description: Foreign key to dim_film.
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_film')
+                field: film_id
+  - name: fct_starship_film_appearance
+    description: Which starships appear in which films. One row per starship per film.
+    data_tests:
+      - unique_pair:
+          arguments:
+            column_a: starship_id
+            column_b: film_id
+    columns:
+      - name: starship_id
+        description: Foreign key to dim_starship.
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_starship')
+                field: starship_id
+      - name: film_id
+        description: Foreign key to dim_film.
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_film')
+                field: film_id
