@@ -19,6 +19,12 @@ models:
         description: Name of the planet. The unnamed placeholder planet is excluded.
         data_tests:
           - not_null
+      - name: surface_area_km2
+        description: Surface area in km2, calculated as a sphere from diameter_km. NULL if the diameter is unknown.
+      - name: population_per_km2
+        description: Population per km2 of total surface, land and water. NULL if population or diameter is unknown.
+        data_tests:
+          - non_negative
   - name: dim_starship
     description: Starship dimension. One starship per row.
     columns:

@@ -12,6 +12,9 @@ select
     gravity_standard_g,
     terrains,
     surface_water_percentage,
-    population
+    population,
+    -- Treats the planet as a sphere: surface area = pi * diameter^2
+    pi() * diameter_km * diameter_km as surface_area_km2,
+    population / (pi() * diameter_km * diameter_km) as population_per_km2
 from planets
 where name is not null
