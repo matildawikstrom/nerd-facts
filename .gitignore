@@ -6,8 +6,8 @@ __pycache__/
 # IDE
 .idea/
 
-# Generated data (rebuilt by running the pipeline)
-data/raw/
+# Generated data (rebuilt by running the pipeline).
+# data/raw/ is committed as a snapshot, so the project runs even if swapi.dev is down.
 data/*.duckdb
 data/*.duckdb.wal
 
