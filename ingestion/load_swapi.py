@@ -32,7 +32,7 @@ def fetch_all(session: requests.Session, endpoint: str) -> list[dict]:
         records.extend(page["results"])
         url = page["next"]  # None on the last page, which ends the loop
 
-    # Verify all pages has been extracted
+    # Verify all pages have been extracted
     if len(records) != page["count"]:
         raise RuntimeError(f"{endpoint}: expected {page['count']} records, got {len(records)}")
 
