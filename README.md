@@ -97,13 +97,8 @@ count of rows. Names, titles and other attributes come from joining the dimensio
 
 - swapi.dev covers only the first six films, so facts such as how many films a character
   appears in stop at *Return of the Jedi*.
-- Some values are unknown in the source. The page says where this matters, such as "cost is
-  known for 26 of 36 starships".
-- Anakin Skywalker and Darth Vader are separate characters in the data, so a per-character
-  count treats them as two people.
-- Population density uses total surface area, land and water, because water coverage is
-  missing for many planets.
-- The page's Earth comparison uses a figure from outside the data.
+- Only part of swapi.dev is modelled: people, films, planets and starships. Species and
+  vehicles are downloaded but not modelled, and starship pilots are not used.
 - The committed raw data is a snapshot. Refreshing it needs swapi.dev to be online.
 
 ## Next steps
@@ -113,13 +108,9 @@ Ranked by value for the business:
 1. **Scheduling and CI:** run the loader and `dbt build` on a schedule, and run `dbt build` on
    every pull request, for example with GitHub Actions. This turns the project into a service
    instead of something someone has to remember to run.
-2. **More sources:** add the other APIs from the brief with a loader and staging models per
-   API. Shared concepts, such as a character, become conformed dimensions that all sources use.
-3. **History:** keep raw data append-only and add dbt snapshots, so changes in the source
-   can be tracked over time.
-4. **Monitoring:** source freshness checks and alerts on failing tests, so problems are
-   noticed before the board sees them.
-5. **Serving more users:** publish the page, define metrics in a semantic layer, and add model
-   contracts so other teams can rely on the marts.
-6. **Complete the swapi.dev model:** add species, vehicles and pilots with the same pattern.
+2. **Complete the swapi.dev model:** add species, vehicles and pilots with the same pattern.
    No loader change is needed.
+3. **More sources:** add the other APIs from the brief with a loader and staging models per
+   API. Shared concepts, such as a character, become conformed dimensions that all sources use.
+4. **Serving more users:** publish the page, define metrics in a semantic layer, and add model
+   contracts so other teams can rely on the marts.
