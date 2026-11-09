@@ -4,8 +4,6 @@ Greta, the company's Nerd Facts expert, is retiring. This project replaces her S
 knowledge with a small data pipeline: it downloads data from [swapi.dev](https://swapi.dev),
 models it with dbt in DuckDB, and shows fun facts for the board in a Streamlit page.
 
-The goal is a small, complete pipeline that is easy to run and to discuss, not an exhaustive one.
-
 ## Quick start
 
 **Prerequisites:** [uv](https://docs.astral.sh/uv/getting-started/installation/) and git.
@@ -102,8 +100,6 @@ count of rows. Names, titles and other attributes come from joining the dimensio
 - The committed raw data is a snapshot. Refreshing it needs swapi.dev to be online.
 
 ## Next steps
-
-Ranked by value for the business:
 
 1. **Scheduling and CI:** run the loader and `dbt build` on a schedule, and run `dbt build` on
    every pull request, for example with GitHub Actions. This turns the project into a service
