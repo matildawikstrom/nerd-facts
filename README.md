@@ -106,7 +106,7 @@ count of rows. Names, titles and other attributes come from joining the dimensio
    instead of something someone has to remember to run.
 2. **Complete the swapi.dev model:** add species, vehicles and pilots with the same pattern.
    No loader change is needed.
-3. **More sources:** add the other APIs from the brief with a loader and staging models per
-   API. Shared concepts, such as a character, become conformed dimensions that all sources use.
+3. **More sources:** add additional APIs with a loader and staging models per
+   API. Shared concepts, such as a character, become conformed dimensions that all sources use in the marts.
 4. **Serving more users:** publish the page, define metrics in a semantic layer, and add model
    contracts so other teams can rely on the marts.
